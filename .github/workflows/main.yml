@@ -27,5 +27,7 @@ jobs:
         id: vars
         run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
       - name: Build the tagged Docker image
-        run: docker build -t lnizampatnam .
+        run: docker build -t lnizampatnam/docdeploy .
+      - name: Push the tagged Docker image
+        run: docker push lnizampatnam/docdeploy
 
